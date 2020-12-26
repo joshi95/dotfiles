@@ -20,3 +20,23 @@ else
     " We're on POSIX system, hopefully.
     let g:vim_home_path = "~/.vim"
 endif
+
+"----------------------------------------------------------------------
+" Plugins
+"----------------------------------------------------------------------
+call plug#begin(g:vim_home_path . "/plugged")
+Plug 'https://github.com/joshi95/vim-misc.git'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dracula/vim'
+Plug 'vim-scripts/AfterColors.vim'
+Plug 'chrisbra/Colorizer'
+Plug 'easymotion/vim-easymotion'
+call plug#end()
+
+"----------------------------------------------------------------------
+" Initialize
+"----------------------------------------------------------------------
+" Load in my custom vimrc if it exists
+if filereadable(expand(g:vim_home_path . "/plugged/vim-misc/vimrc.vim"))
+    execute "source " . g:vim_home_path . "/plugged/vim-misc/vimrc.vim"
+endif
